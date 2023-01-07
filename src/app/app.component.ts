@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'directivasEstructurales';
+  // ngfor
+  listaEstudiantes: any[] = [
+    {nombre: 'Tomas Gonzalez', estado: 'Promocionado'},
+    {nombre: 'Lucas Perez', estado: 'Regular'},
+    {nombre: 'Juan García', estado: 'Regular'},
+  ]
 }
