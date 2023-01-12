@@ -1,28 +1,37 @@
 <!--.container.mt-4>.row>h3{Listado de estudiantes}+br+table.table>thead+tbody>tr>td*3-->
+<h3>{{title}}</h3>
+
 <div class="container mt-4">
-  <div class="row">
-    <h3>{{title}}</h3>
-    <br>
-    <figure>
-      <figcaption>Tabla
-        <table class="table">
-          <thead>
-          <tr>
-            <th>id</th>
-            <th>Nombre</th>
-            <th>Estado</th>
-          </tr>
-          </thead>
-          <tbody>
-          <!--      ngfor-->
-          <tr *ngFor="let estudiante of listaEstudiantes;let i = index">
-            <td>{{i + 1}}</td>
-            <td>{{estudiante.nombre}}</td>
-            <td>{{estudiante.estado}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </figcaption>
-    </figure>
-  </div>
+
+  <h3>Listado de estudiantes</h3>
+  <br>
+
+  <!--ngIf-->
+  <table class="table">
+    <thead><tr><th>id</th><th>Nombre</th><th>Estado</th><th>Raza</th></tr></thead>
+    <tbody>
+
+    <tr
+      *ngFor="let estudiante of listaEstudiantes;let i = index"
+      [ngSwitch]="estudiante.raza">
+
+      <td>{{i + 1}}</td>
+      <td>{{estudiante.nombre}}</td>
+      <td>{{estudiante.estado}}</td>
+
+      <td>
+        <span *ngSwitchCase="'blanco'" class="badge bg-success">{{estudiante.raza}}</span>
+        <span *ngSwitchCase="'negro'" class="badge bg-secondary">{{estudiante.raza}}</span>
+        <span *ngSwitchCase="'chino'" class="badge bg-danger">{{estudiante.raza}}</span>
+        <span *ngSwitchDefault>{{estudiante.raza}}</span>
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+  <!--  Si comentamos la tabla para que no haya registros aparece-->
+  <h3 *ngIf=" listaEstudiantes.length=== 0
+      ">No hay registros para mostrar</h3>
 </div>

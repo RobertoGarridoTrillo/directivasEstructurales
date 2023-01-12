@@ -10,8 +10,18 @@ export class AppComponent {
 
   // ngfor
   listaEstudiantes: any[] = [
-    {nombre: 'Tomas Gonzalez', estado: 'Promocionado'},
-    {nombre: 'Lucas Perez', estado: 'Regular'},
-    {nombre: 'Juan García', estado: 'Regular'},
+    {nombre: 'Tomas Gonzalez', estado: 'Promocionado', raza: 'blanco'},
+    {nombre: 'Lucas Perez', estado: 'Regular', raza: 'negro'},
+    {nombre: 'Juan García', estado: 'Regular', raza: 'chino'},
   ]
+
+  // ngIf
+  mostrar = true;
+
+  toggle(): void{
+    this.mostrar = !this.mostrar;
+  }
 }
+
+
+
